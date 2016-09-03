@@ -52,7 +52,7 @@ public class SignListener implements Listener {
 			if (ChatColor.stripColor(ln[0]).toLowerCase().equalsIgnoreCase(SurvivalServer.instance.perksSign)) {
 
 				String perkName = ln[1];
-				String buyAmount = ln[2];
+				String buyAmount = ln[2].replace("$", "");;
 				String perm = null;
 
 				switch (perkName) {
@@ -135,7 +135,7 @@ public class SignListener implements Listener {
 			if (ChatColor.stripColor(ln[0]).toLowerCase().equalsIgnoreCase(SurvivalServer.instance.spawnerSign)) {
 
 				String spawnerName = ln[1];
-				String buyAmount = ln[2];
+				String buyAmount = ln[2].replace("$", "");
 				String spawnerCommand = null;
 
 				switch (spawnerName) {
@@ -146,11 +146,140 @@ public class SignListener implements Listener {
 				case "Skeleton":
 					spawnerCommand = "skeleton";
 					break;
+					
+				case "Creeper":
+					spawnerCommand = "creeper";
+					break;
+					
+				case "Spider":
+					spawnerCommand = "spider";
+					break;
+					
+				case "Giant":
+					spawnerCommand = "giant";
+					break;
+					
+				case "Slime":
+					spawnerCommand = "slime";
+					break;
+					
+				case "Ghast":
+					spawnerCommand = "ghast";
+					break;
+					
+				case "PigZombie":
+					spawnerCommand = "zombiepigman";
+					break;
+					
+				case "Enderman":
+					spawnerCommand = "enderman";
+					break;
+					
+				case "CaveSpider":
+					spawnerCommand = "cavespider";
+					break;
+					
+				case "Silverfish":
+					spawnerCommand = "silverfish";
+					break;
+					
+				case "Blaze":
+					spawnerCommand = "blaze";
+					break;
+					
+				case "LavaSlime":
+					spawnerCommand = "magmacube";
+					break;
+					
+				case "EnderDragon":
+					spawnerCommand = "enderdragon";
+					break;
+					
+				case "WitherBoss":
+					spawnerCommand = "witherboss";
+					break;
+					
+				case "Witch":
+					spawnerCommand = "witch";
+					break;
+					
+				case "Endermite":
+					spawnerCommand = "endermite";
+					break;
+					
+				case "Guardian":
+					spawnerCommand = "guardian";
+					break;
+					
+				case "Shulker":
+					spawnerCommand = "shulker";
+					break;
+					
+				case "Bat":
+					spawnerCommand = "bat";
+					break;
+					
+				case "Pig":
+					spawnerCommand = "pig";
+					break;
+					
+				case "Sheep":
+					spawnerCommand = "sheep";
+					break;
+					
+				case "Cow":
+					spawnerCommand = "cow";
+					break;
+					
+				case "Chicken":
+					spawnerCommand = "chicken";
+					break;
+					
+				case "Squid":
+					spawnerCommand = "squid";
+					break;
+					
+				case "Wolf":
+					spawnerCommand = "wolf";
+					break;
+					
+				case "MushroomCow":
+					spawnerCommand = "mooshroom";
+					break;
+					
+				case "SnowMan":
+					spawnerCommand = "snowgolem";
+					break;
+					
+				case "Ozelot":
+					spawnerCommand = "ocelot";
+					break;
+					
+				case "IronGolem":
+					spawnerCommand = "irongolem";
+					break;
+					
+				case "Villager":
+					spawnerCommand = "villager";
+					break;
+					
+				case "Horse":
+					spawnerCommand = "horse";
+					break;
+					
+				case "Rabbit":
+					spawnerCommand = "rabbit";
+					break;
+					
+				case "PolarBear":
+					spawnerCommand = "polarbear";
+					break;
 
 				default:
 					break;
 				}
 				if (spawnerCommand != null) {
+					
 					
 					// check and withdraw funds from player
 					EconomyResponse r = plugin.econ.withdrawPlayer(player, Double.parseDouble(buyAmount));
