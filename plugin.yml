@@ -1,0 +1,8 @@
+name: SurvivalServer
+version: 0.1.dev
+description: SurvivalServer
+author: judgetread
+authors: [judgetread] 
+website: http://thelasthero.net
+main: SurvivalServer.SurvivalServer
+depend: [Vault]
