@@ -23,7 +23,8 @@ public class SurvivalServer extends JavaPlugin {
 	public static Economy econ = null;
     public static Permission perms = null;
 
-	public String perksSign = "[perks]";
+	public String perksSign = "[PERKS]";
+	public String spawnerSign = "[BUYSPAWNER]";
 	public String perksWorld = "World_Start";
 
 	// -------------------------------------------------------------------------------------

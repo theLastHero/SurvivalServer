@@ -15,7 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import SurvivalServer.SurvivalServer;
 
 public class SignListener implements Listener {
-	
+
 	public static SurvivalServer plugin;
 
 	// -------------------------------------------------------------------------------------
@@ -24,7 +24,6 @@ public class SignListener implements Listener {
 	public SignListener(SurvivalServer SurvivalServer) {
 		plugin = SurvivalServer;
 	}
-
 
 	// -------------------------------------------------------------------------------------
 	// onPlayerInteract
@@ -37,106 +36,138 @@ public class SignListener implements Listener {
 		Player player = e.getPlayer();
 
 		// check world sign is in
-		//if (player.getWorld().getName().equalsIgnoreCase(plugin.perksWorld)) {
+		// if (player.getWorld().getName().equalsIgnoreCase(plugin.perksWorld)) {
 
-			// Was a sign clicked
-			if ((block.getType().equals(Material.SIGN_POST) || block.getType().equals(Material.WALL_SIGN))) {
-				Sign sign = (Sign) block.getState();
-				String[] ln = sign.getLines();
+		// Was a sign clicked
+		if ((block.getType().equals(Material.SIGN_POST) || block.getType().equals(Material.WALL_SIGN))) {
+			Sign sign = (Sign) block.getState();
+			String[] ln = sign.getLines();
 
-				if(!player.getWorld().getName().equalsIgnoreCase(SurvivalServer.instance.perksWorld)){
-					return;
+			// not in world_start then exit
+			if (!player.getWorld().getName().equalsIgnoreCase(SurvivalServer.instance.perksWorld)) {
+				return;
+			}
+
+			// check if a perks sign
+			if (ChatColor.stripColor(ln[0]).toLowerCase().equalsIgnoreCase(SurvivalServer.instance.perksSign)) {
+
+				String perkName = ln[1];
+				String buyAmount = ln[2];
+				String perm = null;
+
+				switch (perkName) {
+				case "/craft":
+					perm = "essentials.workbench";
+					break;
+
+				case "/hat":
+					perm = "essentials.hat";
+					break;
+
+				case "/ptime":
+					perm = "essentials.ptime";
+					break;
+
+				case "/near":
+					perm = "essentials.near";
+					break;
+
+				case "/nick":
+					perm = "essentials.nick";
+					break;
+
+				case "/recipe":
+					perm = "essentials.recipe";
+					break;
+
+				case "/enderchest":
+					perm = "essentials.enderchest";
+					break;
+
+				case "/back":
+					perm = "essentials.back";
+					break;
+
+				case "keepxp":
+					perm = "essentials.keepxp";
+					break;
+
+				case "/top":
+					perm = "essentials.top";
+					break;
+
+				case "chat colors":
+					perm = "essentials.chat.color";
+					break;
+
+				case "join full server":
+					perm = "essentials.joinfullserver";
+					break;
+
+				case "color on signs":
+					perm = "essentials.signs.color";
+					break;
+
+				default:
+					break;
 				}
-				
-				
-				// check if a perks sign
-				if (ln[0].toLowerCase().equalsIgnoreCase(SurvivalServer.instance.perksSign)) {
 
-					String perkName = ln[1];
-					String buyAmount = ln[2];
-					String perm = null;
-
-					switch (perkName) {
-						case "/craft":
-							perm = "essentials.workbench";
-							break;
-							
-						case "/hat":
-							perm = "essentials.hat";
-							break;
-								
-						case "/ptime":
-							perm = "essentials.ptime";
-							break;
-
-						case "/near":
-							perm = "essentials.near";
-							break;
-							
-							
-						case "/nick":
-							perm = "essentials.nick";
-							break;
-
-						case "/recipe":
-							perm = "essentials.recipe";
-							break;
-							
-						case "/enderchest":
-							perm = "essentials.enderchest";
-							break;
-							
-						case "/back":
-							perm = "essentials.back";
-							break;
-							
-						case "keepxp":
-							perm = "essentials.keepxp";
-							break;
-							
-						case "/top":
-							perm = "essentials.top";
-							break;
-							
-						case "chat colors":
-							perm = "essentials.chat.color";
-							break;		
-							
-						case "join full server":
-								perm = "essentials.joinfullserver";
-								break;	
-								
-						case "color on signs":
-								perm = "essentials.signs.color";
-								break;
-							
-						default:
-							break;
-					}
-					
-					if(SurvivalServer.perms.has("world", player.getName(), perm)){
+				if (perm != null) {
+					if (SurvivalServer.perms.has("world", player.getName(), perm)) {
 						player.sendMessage(ChatColor.GREEN + "You already have this perk: " + ChatColor.RED + perkName);
 						return;
 					}
-					
+
 					// check and withdraw funds from player
 					EconomyResponse r = plugin.econ.withdrawPlayer(player, Double.parseDouble(buyAmount));
-			        if(r.transactionSuccess()) {
-			        	player.sendMessage(ChatColor.GREEN + "you bought perk: " + ChatColor.RED + perm);
+					if (r.transactionSuccess()) {
+						player.sendMessage(ChatColor.GREEN + "you bought perk: " + ChatColor.RED + perm);
 						SurvivalServer.perms.playerAdd(player, perm);
 						return;
 					} else {
-						player.sendMessage(ChatColor.GREEN + "You dont have enough money to buy this perk: " + ChatColor.RED +  perkName);
+						player.sendMessage(ChatColor.GREEN + "You dont have enough money to buy this perk: " + ChatColor.RED + perkName);
 						return;
 					}
 				}
-
-			} else {
-				return;
 			}
-		//} else {
-		//	return;
-		//}
+
+			// check if a BuySpawner sign
+			if (ChatColor.stripColor(ln[0]).toLowerCase().equalsIgnoreCase(SurvivalServer.instance.spawnerSign)) {
+
+				String spawnerName = ln[1];
+				String buyAmount = ln[2];
+				String spawnerCommand = null;
+
+				switch (spawnerName) {
+				case "Zombie":
+					spawnerCommand = "zombie";
+					break;
+
+				case "Skeleton":
+					spawnerCommand = "skeleton";
+					break;
+
+				default:
+					break;
+				}
+				if (spawnerCommand != null) {
+					
+					// check and withdraw funds from player
+					EconomyResponse r = plugin.econ.withdrawPlayer(player, Double.parseDouble(buyAmount));
+					if (r.transactionSuccess()) {
+						player.sendMessage(ChatColor.GREEN + "you bought perk: " + ChatColor.RED + spawnerName + ChatColor.GREEN + " spawner.");
+						Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "silkspawners give " + player.getName() + " " + spawnerCommand + " 1");
+						return;
+					} else {
+						player.sendMessage(ChatColor.GREEN + "You dont have enough money to buy this " + ChatColor.RED + spawnerName + ChatColor.GREEN + " spawner. ");
+						return;
+					}
+					
+				}
+
+			}
+
+		}
 
 	}
 
