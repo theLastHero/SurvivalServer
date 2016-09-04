@@ -10,9 +10,26 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import SurvivalServer.SurvivalServer;
+
+
+/* SignListener:
+ * Contains code for buying in game perk/permissions
+ * and spawners.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 public class SignListener implements Listener {
 
@@ -38,15 +55,19 @@ public class SignListener implements Listener {
 		// check world sign is in
 		// if (player.getWorld().getName().equalsIgnoreCase(plugin.perksWorld)) {
 
+		// not in world_start then exit
+		if (!player.getWorld().getName().equalsIgnoreCase(SurvivalServer.instance.perksWorld)) {
+			return;
+		}
+
+		//make it right click only
+		if(!(e.getAction() == Action.RIGHT_CLICK_BLOCK)){
+			return;
+		}
 		// Was a sign clicked
 		if ((block.getType().equals(Material.SIGN_POST) || block.getType().equals(Material.WALL_SIGN))) {
 			Sign sign = (Sign) block.getState();
 			String[] ln = sign.getLines();
-
-			// not in world_start then exit
-			if (!player.getWorld().getName().equalsIgnoreCase(SurvivalServer.instance.perksWorld)) {
-				return;
-			}
 
 			// check if a perks sign
 			if (ChatColor.stripColor(ln[0]).toLowerCase().equalsIgnoreCase(SurvivalServer.instance.perksSign)) {
