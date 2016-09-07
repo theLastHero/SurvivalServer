@@ -165,6 +165,9 @@ public class SignListener implements Listener {
 					perm = "essentials.sethome.multiple.tenhome";
 					break;
 					
+				case "mine spawners":
+					perm = "silkspawners.silkdrop.*";
+					break;
 					
 				default:
 					break;
