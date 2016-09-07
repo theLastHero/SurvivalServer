@@ -129,6 +129,43 @@ public class SignListener implements Listener {
 					perm = "essentials.signs.color";
 					break;
 
+				case "2 set homes":
+					perm = "essentials.sethome.multiple.twohome";
+					break;
+
+				case "3 set homes":
+					perm = "essentials.sethome.multiple.threehome";
+					break;
+
+				case "4 set homes":
+					perm = "essentials.sethome.multiple.fourhome";
+					break;
+
+				case "5 set homes":
+					perm = "essentials.sethome.multiple.fivehome";
+					break;
+
+				case "6 set homes":
+					perm = "essentials.sethome.multiple.sixhome";
+					break;
+
+				case "7 set homes":
+					perm = "essentials.sethome.multiple.sevenhome";
+					break;
+
+				case "8 set homes":
+					perm = "essentials.sethome.multiple.eighthome";
+					break;
+
+				case "9 set homes":
+					perm = "essentials.sethome.multiple.ninehome";
+					break;
+
+				case "10 set homes":
+					perm = "essentials.sethome.multiple.tenhome";
+					break;
+					
+					
 				default:
 					break;
 				}
