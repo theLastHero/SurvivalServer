@@ -16,7 +16,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
-import SurvivalServer.SurvivalServer;
 import Utils.BookUtil;
 
 public class NpcListener implements Listener{
@@ -73,7 +72,7 @@ public class NpcListener implements Listener{
 		
 	}
 	
-	public static void openBook(Player player, List<String> pages) {
+	public void openBook(Player player, List<String> pages) {
 		ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
 		BookMeta meta = (BookMeta) book.getItemMeta();
 		meta.setTitle("");

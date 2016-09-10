@@ -6,22 +6,15 @@ import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import Listeners.NpcListener;
 import Listeners.SignListener;
-import Listeners.VoteListener;
 import Managers.EcoManager;
 import Managers.PermsManager;
 import Utils.BookUtil;
-
-import com.vexsoftware.votifier.NuVotifierBukkit;
-import com.vexsoftware.votifier.bungee.events.VotifierEvent;
-import com.vexsoftware.votifier.model.Vote;
 
 public class SurvivalServer extends JavaPlugin {
 
@@ -66,7 +59,6 @@ public static Economy econ = null;
 		instance = this;
 		Bukkit.getServer().getPluginManager().registerEvents(new SignListener(plugin), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new NpcListener(), this);
-		Bukkit.getServer().getPluginManager().registerEvents(new VoteListener(), this);
 		new EcoManager(this);
 		new PermsManager(this);
 		
@@ -263,18 +255,6 @@ public static Economy econ = null;
         return perms != null;
     }
 	
-	@EventHandler
-	public void onPlayerVote(VotifierEvent e){
-		Vote v = e.getVote();
-		Bukkit.getServer().broadcastMessage(v.getUsername() + "Voted on " + v.getServiceName());
-		
-		Player p = Bukkit.getServer().getPlayer(v.getUsername());
-		if(p == null){
-			return;
-		}
-		
-		Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "cr givekey " + v.getUsername() + " VoteCrate 1");
-		
-	}
+
 
 }

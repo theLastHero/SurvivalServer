@@ -169,6 +169,10 @@ public class SignListener implements Listener {
 					perm = "silkspawners.silkdrop.*";
 					break;
 					
+				case "set /pwarp":
+					perm = "PlayerWarps.set";
+					break;
+					
 				default:
 					break;
 				}
