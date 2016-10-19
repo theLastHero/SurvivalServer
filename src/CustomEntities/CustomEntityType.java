@@ -6,22 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.server.v1_10_R1.BiomeBase;
-import net.minecraft.server.v1_10_R1.Entity;
 import net.minecraft.server.v1_10_R1.BiomeBase.BiomeMeta;
+import net.minecraft.server.v1_10_R1.Entity;
 //import net.minecraft.server.v1_10_R1.BiomeMeta;
 import net.minecraft.server.v1_10_R1.EntityInsentient;
 import net.minecraft.server.v1_10_R1.EntitySkeleton;
 import net.minecraft.server.v1_10_R1.EntityTypes;
-import net.minecraft.server.v1_10_R1.EntityZombie;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
 import org.bukkit.entity.EntityType;
 
 public enum CustomEntityType {
 
-	DIAMONDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, DiamondSkeleton.class);
+	DIAMONDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, DiamondSkeleton.class),
+	IRONSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, IronSkeleton.class),
+	GOLDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, GoldSkeleton.class);
 	
 	private String name;
 	private int id;

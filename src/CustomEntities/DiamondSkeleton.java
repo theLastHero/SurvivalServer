@@ -30,7 +30,7 @@ public class DiamondSkeleton extends EntitySkeleton implements Listener {
 
 		// HELMENT
 		ItemStack helment = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_BLOCK), Enchantment.PROTECTION_ENVIRONMENTAL, 5, null);
-		helment = ItemsBuilder.addEnchantment(helment, Enchantment.PROTECTION_EXPLOSIONS, 2, null);
+		helment = ItemsBuilder.addEnchantment(helment, Enchantment.PROTECTION_EXPLOSIONS, 5, null);
 		helment = ItemsBuilder.addEnchantment(helment, Enchantment.PROTECTION_FIRE, 5, null);
 		helment = ItemsBuilder.addEnchantment(helment, Enchantment.PROTECTION_PROJECTILE, 5, null);
 		helment = ItemsBuilder.addEnchantment(helment, Enchantment.DURABILITY, 5, null);
@@ -40,7 +40,7 @@ public class DiamondSkeleton extends EntitySkeleton implements Listener {
 
 		// CHESTPLATE
 		ItemStack chestPlate = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_CHESTPLATE), Enchantment.PROTECTION_ENVIRONMENTAL, 5, ChatColor.AQUA + "DiamondSkeleton ChestPlate");
-		chestPlate = ItemsBuilder.addEnchantment(chestPlate, Enchantment.PROTECTION_EXPLOSIONS, 2, null);
+		chestPlate = ItemsBuilder.addEnchantment(chestPlate, Enchantment.PROTECTION_EXPLOSIONS, 5, null);
 		chestPlate = ItemsBuilder.addEnchantment(chestPlate, Enchantment.PROTECTION_FIRE, 5, null);
 		chestPlate = ItemsBuilder.addEnchantment(chestPlate, Enchantment.PROTECTION_PROJECTILE, 5, null);
 		chestPlate = ItemsBuilder.addEnchantment(chestPlate, Enchantment.DURABILITY, 5, null);
@@ -50,7 +50,7 @@ public class DiamondSkeleton extends EntitySkeleton implements Listener {
 
 		// LEGGINGS
 		ItemStack leggings = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_LEGGINGS), Enchantment.PROTECTION_ENVIRONMENTAL, 5, ChatColor.AQUA + "DiamondSkeleton Leggings");
-		leggings = ItemsBuilder.addEnchantment(leggings, Enchantment.PROTECTION_EXPLOSIONS, 2, null);
+		leggings = ItemsBuilder.addEnchantment(leggings, Enchantment.PROTECTION_EXPLOSIONS, 5, null);
 		leggings = ItemsBuilder.addEnchantment(leggings, Enchantment.PROTECTION_FIRE, 5, null);
 		leggings = ItemsBuilder.addEnchantment(leggings, Enchantment.PROTECTION_PROJECTILE, 5, null);
 		leggings = ItemsBuilder.addEnchantment(leggings, Enchantment.DURABILITY, 5, null);
@@ -60,7 +60,7 @@ public class DiamondSkeleton extends EntitySkeleton implements Listener {
 
 		// BOOTS
 		ItemStack boots = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_BOOTS), Enchantment.PROTECTION_ENVIRONMENTAL, 5, ChatColor.AQUA + "DiamondSkeleton Boots");
-		boots = ItemsBuilder.addEnchantment(boots, Enchantment.PROTECTION_EXPLOSIONS, 2, null);
+		boots = ItemsBuilder.addEnchantment(boots, Enchantment.PROTECTION_EXPLOSIONS, 5, null);
 		boots = ItemsBuilder.addEnchantment(boots, Enchantment.PROTECTION_FIRE, 5, null);
 		boots = ItemsBuilder.addEnchantment(boots, Enchantment.PROTECTION_PROJECTILE, 5, null);
 		boots = ItemsBuilder.addEnchantment(boots, Enchantment.DURABILITY, 5, null);
@@ -70,19 +70,21 @@ public class DiamondSkeleton extends EntitySkeleton implements Listener {
 
 		// MAINHAND
 		ItemStack mainHand = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_AXE), Enchantment.DAMAGE_ALL, 5, ChatColor.AQUA + "DiamondSkeleton MainHand Axe");
-		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.FIRE_ASPECT, 2, null);
+		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.FIRE_ASPECT, 5, null);
 		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.MENDING, 2, null);
 		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.DURABILITY, 5, null);
 		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.LOOT_BONUS_MOBS, 5, null);
+		mainHand = ItemsBuilder.addEnchantment(mainHand, Enchantment.DAMAGE_ALL, 5, null);
 		((LivingEntity) this.getBukkitEntity()).getEquipment().setItemInMainHand(mainHand);
 		((LivingEntity) this.getBukkitEntity()).getEquipment().setItemInMainHandDropChance(0.3F);
 
 		// OFFHAND
 		ItemStack offHand = ItemsBuilder.addEnchantment(new ItemStack(Material.DIAMOND_AXE), Enchantment.DAMAGE_ALL, 5, ChatColor.AQUA + "DiamondSkeleton OffHand Axe");
-		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.FIRE_ASPECT, 2, null);
+		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.FIRE_ASPECT, 5, null);
 		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.MENDING, 2, null);
 		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.DURABILITY, 5, null);
 		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.LOOT_BONUS_MOBS, 5, null);
+		offHand = ItemsBuilder.addEnchantment(offHand, Enchantment.DAMAGE_ALL, 5, null);
 		((LivingEntity) this.getBukkitEntity()).getEquipment().setItemInOffHand(offHand);
 		((LivingEntity) this.getBukkitEntity()).getEquipment().setItemInOffHandDropChance(0.3F);
 
