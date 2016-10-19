@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="C:/Users/Tony/Desktop/OVH Server/res/citizens-2.0.20-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tony/Desktop/OVH Server/res/spigot_survival.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tony/Desktop/OVH Server/res/nuvotifier-universal-2.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Tony/Desktop/OVH Server/res/craftbukkit-1.10.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

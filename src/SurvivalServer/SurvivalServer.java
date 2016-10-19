@@ -10,6 +10,8 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import CustomEntities.CustomEntityType;
+import Listeners.CustomMobListener;
 import Listeners.NpcListener;
 import Listeners.SignListener;
 import Managers.EcoManager;
@@ -47,6 +49,7 @@ public static Economy econ = null;
 	// -------------------------------------------------------------------------------------
 	@Override
 	public void onDisable() {
+		CustomEntityType.unregisterEntities();
 	}
 
 	// -------------------------------------------------------------------------------------
@@ -57,8 +60,11 @@ public static Economy econ = null;
 
 		// Registers
 		instance = this;
+		CustomEntityType.registerEntities();
+		
 		Bukkit.getServer().getPluginManager().registerEvents(new SignListener(plugin), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new NpcListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new CustomMobListener(), this);
 		new EcoManager(this);
 		new PermsManager(this);
 		
