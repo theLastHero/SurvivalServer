@@ -14,7 +14,10 @@ import net.minecraft.server.v1_10_R1.World;
 import CustomEntities.CustomEntityType;
 import CustomEntities.DiamondSkeleton;
 import CustomEntities.GoldSkeleton;
+import CustomEntities.GolemOne;
 import CustomEntities.IronSkeleton;
+import CustomEntities.UltimateCreeper;
+import CustomEntities.ZombieOne;
 import Utils.Maths;
 
 public class CustomMobListener implements Listener {
@@ -26,7 +29,7 @@ public class CustomMobListener implements Listener {
 		net.minecraft.server.v1_10_R1.Entity mcEntity = (((CraftEntity) event.getEntity()).getHandle());
 		LivingEntity sender = event.getEntity();
 		
-		int a = Maths.getRandom(1, 1000);
+		int a = Maths.getRandom(1, 1200);
 
 		if (event.isCancelled()) return;
 
@@ -34,6 +37,24 @@ public class CustomMobListener implements Listener {
 			norm = true;
 		}
 
+		
+		if (event.getEntityType() == EntityType.CREEPER) {
+			if ((mcEntity instanceof UltimateCreeper == true)) {
+				return;
+			}
+			
+			//Ultimate Creeper
+			if(a > 1 && a < 3){
+				//not from spawner
+				if (event.getSpawnReason() == SpawnReason.SPAWNER) {
+					return;
+				}
+				//cancel spawn
+				event.setCancelled(true);
+				//do new spawn
+				CustomEntityType.spawnEntity(new UltimateCreeper((CraftWorld) sender.getServer().getWorld("world")), sender.getLocation());
+			}
+		}
 		
 
 		if (event.getEntityType() == EntityType.SKELETON) {
@@ -58,7 +79,7 @@ public class CustomMobListener implements Listener {
 			}
 			
 			//Diamond Skeleton
-			if(a > 4 && a < 10){
+			if(a > 4 && a < 8){
 				//not from spawner
 				if (event.getSpawnReason() == SpawnReason.SPAWNER) {
 					return;
@@ -75,7 +96,7 @@ public class CustomMobListener implements Listener {
 			}
 			
 			//Diamond Skeleton
-			if(a > 11 && a < 20){
+			if(a > 9 && a < 15){
 				//not from spawner
 				if (event.getSpawnReason() == SpawnReason.SPAWNER) {
 					return;

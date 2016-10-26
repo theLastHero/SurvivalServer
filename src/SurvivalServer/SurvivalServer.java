@@ -1,16 +1,30 @@
 package SurvivalServer;
 
 import java.io.File;
+import java.util.List;
+import java.util.UUID;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
+import net.minecraft.server.v1_10_R1.MinecraftServer;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
+import com.google.common.collect.Lists;
+
+import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.effect.ShieldEffect;
+import de.slikey.effectlib.util.ParticleEffect;
 import CustomEntities.CustomEntityType;
+import CustomEntities.UltimateCreeper;
+import CustomEntities.ZombieOne;
 import Listeners.CustomMobListener;
 import Listeners.NpcListener;
 import Listeners.SignListener;
@@ -25,6 +39,7 @@ public class SurvivalServer extends JavaPlugin {
 	public EcoManager EcoManager;
 	public PermsManager PermsManager;
 	public BookUtil BookUtils;
+	public EffectManager em;
 
 
 public static Economy econ = null;
@@ -34,6 +49,7 @@ public static Economy econ = null;
 	public String spawnerSign = "[BUYSPAWNER]";
 	public String perksWorld = "World_Start";
 	public String playerDataFolderPath = this.getDataFolder() + File.separator + "player_data";  //where player data is stored
+	public List<Integer> mobsList = Lists.newArrayList();
 	
 	public boolean DEBUG_MODE = true;
 	
@@ -50,6 +66,14 @@ public static Economy econ = null;
 	@Override
 	public void onDisable() {
 		CustomEntityType.unregisterEntities();
+	    for (Entity entity : Bukkit.getWorld("world").getEntities())
+	    {	
+	    	
+	    	if ((entity instanceof UltimateCreeper == true)) {
+				entity.remove();
+			}
+	    }
+		
 	}
 
 	// -------------------------------------------------------------------------------------
@@ -67,7 +91,7 @@ public static Economy econ = null;
 		Bukkit.getServer().getPluginManager().registerEvents(new CustomMobListener(), this);
 		new EcoManager(this);
 		new PermsManager(this);
-		
+		em = new EffectManager(this);
 
 		// setup eco
 		setupEconomy();

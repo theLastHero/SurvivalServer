@@ -8,10 +8,13 @@ import java.util.Map;
 import net.minecraft.server.v1_10_R1.BiomeBase;
 import net.minecraft.server.v1_10_R1.BiomeBase.BiomeMeta;
 import net.minecraft.server.v1_10_R1.Entity;
+import net.minecraft.server.v1_10_R1.EntityCreeper;
 //import net.minecraft.server.v1_10_R1.BiomeMeta;
 import net.minecraft.server.v1_10_R1.EntityInsentient;
+import net.minecraft.server.v1_10_R1.EntityIronGolem;
 import net.minecraft.server.v1_10_R1.EntitySkeleton;
 import net.minecraft.server.v1_10_R1.EntityTypes;
+import net.minecraft.server.v1_10_R1.EntityZombie;
 
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
@@ -21,7 +24,10 @@ public enum CustomEntityType {
 
 	DIAMONDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, DiamondSkeleton.class),
 	IRONSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, IronSkeleton.class),
-	GOLDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, GoldSkeleton.class);
+	GOLDSKELETON("Skeleton", 51, EntityType.SKELETON, EntitySkeleton.class, GoldSkeleton.class),
+	ZOMBIEONE("Zombie", 54, EntityType.ZOMBIE, EntityZombie.class, ZombieOne.class),
+	GOLEMONE("VillagerGolem", 99, EntityType.IRON_GOLEM, EntityIronGolem.class, GolemOne.class),
+	ULTIMATECREEPER("Creeper", 50, EntityType.CREEPER, EntityCreeper.class, UltimateCreeper.class);
 	
 	private String name;
 	private int id;
