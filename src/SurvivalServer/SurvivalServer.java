@@ -2,35 +2,28 @@ package SurvivalServer;
 
 import java.io.File;
 import java.util.List;
-import java.util.UUID;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
-import net.minecraft.server.v1_10_R1.MinecraftServer;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import com.google.common.collect.Lists;
-
-import de.slikey.effectlib.EffectManager;
-import de.slikey.effectlib.effect.ShieldEffect;
-import de.slikey.effectlib.util.ParticleEffect;
 import CustomEntities.CustomEntityType;
 import CustomEntities.UltimateCreeper;
-import CustomEntities.ZombieOne;
 import Listeners.CustomMobListener;
 import Listeners.NpcListener;
 import Listeners.SignListener;
 import Managers.EcoManager;
 import Managers.PermsManager;
 import Utils.BookUtil;
+
+import com.google.common.collect.Lists;
+
+import de.slikey.effectlib.EffectManager;
 
 public class SurvivalServer extends JavaPlugin {
 
@@ -84,7 +77,7 @@ public static Economy econ = null;
 
 		// Registers
 		instance = this;
-		CustomEntityType.registerEntities();
+		//CustomEntityType.registerEntities();
 		
 		Bukkit.getServer().getPluginManager().registerEvents(new SignListener(plugin), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new NpcListener(), this);

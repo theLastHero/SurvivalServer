@@ -338,6 +338,30 @@ public class SignListener implements Listener {
 					
 				case "PolarBear":
 					spawnerCommand = "polarbear";
+					break;	
+					
+				case "Llama":
+					spawnerCommand = "llama";
+					break;
+					
+				case "Vex":
+					spawnerCommand = "vex";
+					break;
+					
+				case "Husk":
+					spawnerCommand = "husk,";
+					break;
+					
+				case "Evoker":
+					spawnerCommand = "evoker,";
+					break;
+					
+				case "Stray":
+					spawnerCommand = "stray";
+					break;
+					
+				case "Vindicator":
+					spawnerCommand = "vindicator";
 					break;
 
 				default:

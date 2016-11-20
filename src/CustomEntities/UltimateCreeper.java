@@ -1,11 +1,11 @@
 package CustomEntities;
 
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_10_R1.EntityCreeper;
+import net.minecraft.server.v1_11_R1.EntityCreeper;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;

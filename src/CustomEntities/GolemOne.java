@@ -1,16 +1,16 @@
 package CustomEntities;
 
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_10_R1.EntityGolem;
-import net.minecraft.server.v1_10_R1.EntityIronGolem;
-import net.minecraft.server.v1_10_R1.EntityZombie;
+import net.minecraft.server.v1_11_R1.EntityGolem;
+import net.minecraft.server.v1_11_R1.EntityIronGolem;
+import net.minecraft.server.v1_11_R1.EntityZombie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
