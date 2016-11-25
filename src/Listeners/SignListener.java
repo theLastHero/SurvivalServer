@@ -173,6 +173,10 @@ public class SignListener implements Listener {
 					perm = "PlayerWarps.set";
 					break;
 					
+				case "color items":
+					perm = "coloredanvils.color.*";
+					break;
+					
 				default:
 					break;
 				}
@@ -349,11 +353,11 @@ public class SignListener implements Listener {
 					break;
 					
 				case "Husk":
-					spawnerCommand = "husk,";
+					spawnerCommand = "husk";
 					break;
 					
 				case "Evoker":
-					spawnerCommand = "evoker,";
+					spawnerCommand = "evoker";
 					break;
 					
 				case "Stray":
